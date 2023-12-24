@@ -32,7 +32,8 @@ ic = Image.open("icon.png")
 st.set_page_config(
     page_title="Food Recommendation System",
     page_icon=ic,
-    layout="wide"
+    layout="wide",
+    theme="light"
 )
 
 #css file
