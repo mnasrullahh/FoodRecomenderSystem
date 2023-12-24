@@ -290,7 +290,7 @@ elif selected=="Application":
     st.subheader("Recipe Recommendation")
     col, dum = st.columns([3,7])
     with col:
-        with st.status("Searching Recomendation Recipe...", expanded=True) as status:
+        with st.status("Searching Recomendation Recipe...") as status:
             st.write("Calculating TF-IDF...")
             # Menggabungkan teks dari kolom 'RecipeIngredientParts' dan 'Name' menjadi satu kolom baru 'CombinedText'
             data['CombinedText'] = data['RecipeIngredientParts'].astype('str') + ' ' + data['RecipeInstructions'].astype('str')
