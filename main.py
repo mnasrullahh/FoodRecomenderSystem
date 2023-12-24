@@ -5,6 +5,7 @@ from streamlit_option_menu import option_menu
 from PIL import Image
 import re
 import time 
+import pillow
 
 #visualization library
 import plotly.express as px
@@ -15,6 +16,7 @@ import seaborn as sns
 from wordcloud import WordCloud
 from collections import Counter
 from plotly.subplots import make_subplots
+import matplotlib 
 
 #data manipulation library
 import pandas as pd
@@ -85,13 +87,13 @@ if selected=="Dashboard":
         st.metric(label="Average Sentiment Score", value=average_sentiment_score)
 
     st.subheader('WordCloud for Recipe Names')
-#    dum, word_cloud, dum = st.columns([1,9,1])
-#    with word_cloud:
- #       wordcloud = WordCloud(width=1000, height=500, background_color='white', colormap='viridis').generate(' '.join(data['Name']))
-  #      plt.figure(figsize=(10, 6))
-   #     plt.imshow(wordcloud, interpolation='bilinear') 
-    #    plt.axis('off')
-     #   st.pyplot(plt)
+    dum, word_cloud, dum = st.columns([1,9,1])
+    with word_cloud:
+        wordcloud = WordCloud(width=1000, height=500, background_color='white', colormap='viridis').generate(' '.join(data['Name']))
+        plt.figure(figsize=(10, 6))
+        plt.imshow(wordcloud, interpolation='bilinear') 
+        plt.axis('off')
+        st.pyplot(plt)
   
     st.subheader("Recipe Data")
     dum1, recipe_data, dum2, review_count = st.columns([1,3,2,7])
@@ -284,7 +286,7 @@ elif selected=="Application":
         cells=dict(values=[selected_recipe_info.RecipeIngredientParts, selected_recipe_info.RecipeInstructions],
                     line_color='white', fill_color='white',
                     align='left',font=dict(color='Orange', size=18)))])
-    fig.update_layout(margin=dict(l=2,r=2,b=5,t=5), height=150, width=1000, font_family="Times New Roman") #"Arial", "Balto", "Courier New", "Droid Sans",, "Droid Serif", "Droid Sans Mono", "Gravitas One", "Old Standard TT", "Open Sans", "Overpass", "PT Sans Narrow", "Raleway", "Times New Roman".
+    fig.update_layout(margin=dict(l=2,r=2,b=5,t=5), height=200, width=1000, font_family="Times New Roman") #"Arial", "Balto", "Courier New", "Droid Sans",, "Droid Serif", "Droid Sans Mono", "Gravitas One", "Old Standard TT", "Open Sans", "Overpass", "PT Sans Narrow", "Raleway", "Times New Roman".
     st.write(fig) 
 
     st.subheader("Recipe Recommendation")
