@@ -290,7 +290,7 @@ elif selected=="Application":
     st.subheader("Recipe Recommendation")
     col, dum = st.columns([3,7])
     with col:
-        with st.spinner("Searching Recomendation Recipe...")
+        with st.spinner("Searching Recomendation Recipe..."):
             # Menggabungkan teks dari kolom 'RecipeIngredientParts' dan 'Name' menjadi satu kolom baru 'CombinedText'
             data['CombinedText'] = data['RecipeIngredientParts'].astype('str') + ' ' + data['RecipeInstructions'].astype('str')
             # Menggunakan TfidfVectorizer pada kolom 'CombinedText'
