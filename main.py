@@ -290,19 +290,16 @@ elif selected=="Application":
     st.subheader("Recipe Recommendation")
     col, dum = st.columns([3,7])
     with col:
-        with st.status("Searching Recomendation Recipe...") as status:
-            st.write("Calculating TF-IDF...")
+        with st.spinner("Searching Recomendation Recipe...")
             # Menggabungkan teks dari kolom 'RecipeIngredientParts' dan 'Name' menjadi satu kolom baru 'CombinedText'
             data['CombinedText'] = data['RecipeIngredientParts'].astype('str') + ' ' + data['RecipeInstructions'].astype('str')
             # Menggunakan TfidfVectorizer pada kolom 'CombinedText'
             tfidf = TfidfVectorizer(stop_words='english')
             tfidf_matrix = tfidf.fit_transform(data['CombinedText'])
 
-            st.write("Calculating Similarity...")
             # Menghitung cosine similarity
             similarity = cosine_similarity(tfidf_matrix)
 
-            st.write("Search Similar Recipe...")
             index = data[data['Name'] == choose_recipe].index[0]
 
             # Get the pairwise similarity scores of the product
@@ -319,5 +316,4 @@ elif selected=="Application":
                                         'Inggridients':[data.iloc[score[0]]['RecipeIngredientParts'] for score in sim_scores[1:11]],
                                         'Instructions':[data.iloc[score[0]]['RecipeInstructions'] for score in sim_scores[1:11]]
                                         }).sort_values('Similarity Score',ascending=False)
-            status.update(label="Get Recipe Recomendation!", state="complete", expanded=False)
     st.dataframe(top_products, use_container_width=True)
