@@ -85,13 +85,13 @@ if selected=="Dashboard":
         st.metric(label="Average Sentiment Score", value=average_sentiment_score)
 
     st.subheader('WordCloud for Recipe Names')
-    dum, word_cloud, dum = st.columns([1,9,1])
-    with word_cloud:
-        wordcloud = WordCloud(width=1000, height=500, background_color='white', colormap='viridis').generate(' '.join(data['Name']))
-        plt.figure(figsize=(10, 6))
-        plt.imshow(wordcloud, interpolation='bilinear') 
-        plt.axis('off')
-        st.pyplot(plt)
+#    dum, word_cloud, dum = st.columns([1,9,1])
+#    with word_cloud:
+ #       wordcloud = WordCloud(width=1000, height=500, background_color='white', colormap='viridis').generate(' '.join(data['Name']))
+  #      plt.figure(figsize=(10, 6))
+   #     plt.imshow(wordcloud, interpolation='bilinear') 
+    #    plt.axis('off')
+     #   st.pyplot(plt)
   
     st.subheader("Recipe Data")
     dum1, recipe_data, dum2, review_count = st.columns([1,3,2,7])
