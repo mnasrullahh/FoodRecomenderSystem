@@ -5,7 +5,6 @@ from streamlit_option_menu import option_menu
 from PIL import Image
 import re
 import time 
-import Pillow
 
 #visualization library
 import plotly.express as px
