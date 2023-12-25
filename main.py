@@ -99,7 +99,7 @@ if selected=="Dashboard":
     with recipe_data:
         fig = go.Figure(data=[go.Table(
             columnwidth = [3,1],
-            header=dict(values=list(data[['Name','TotalTime']].columns),
+            header=dict(values=['Recipe Name','Cook Time']),
                         fill_color='#F58A00',
                         align='center',
                         font=dict(color='Black', size=13)),
@@ -280,7 +280,7 @@ elif selected=="Application":
     selected_recipe_info = data[data['Name'] == choose_recipe][['RecipeIngredientParts', 'RecipeInstructions']]
     with tab1:
         fig = go.Figure(selected_recipe_info=[go.Table(
-            header=dict(values=['RecipeIngredientParts'].columns,
+            header=dict(values=['Ingredient'],
                     line_color='white', fill_color='white',
                     align='center',font=dict(color='Black', size=20)),
             cells=dict(values=[selected_recipe_info.RecipeIngredientParts],
