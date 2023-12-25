@@ -99,7 +99,7 @@ if selected=="Dashboard":
     with recipe_data:
         fig = go.Figure(data=[go.Table(
             columnwidth = [3,1],
-            header=dict(values=['Recipe Name','Cook Time']),
+            header=dict(values=['Recipe Name','Cook Time'],
                         fill_color='#F58A00',
                         align='center',
                         font=dict(color='Black', size=13)),
