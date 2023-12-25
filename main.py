@@ -279,19 +279,25 @@ elif selected=="Application":
     tab1, tab2 = st.tabs(["Ingredient", "Instruction"])
     selected_recipe_info = data[data['Name'] == choose_recipe][['RecipeIngredientParts', 'RecipeInstructions']]
     with tab1:
-        fig = go.Figure(selected_recipe_info=[go.Table(
+        fig = go.Figure(data=[go.Table(
             header=dict(values=['Ingredient'],
-                    line_color='white', fill_color='white',
-                    align='center',font=dict(color='Black', size=20)),
+                        line_color='white', fill_color='white',
+                        align='center',font=dict(color='white', size=1)),
             cells=dict(values=[selected_recipe_info.RecipeIngredientParts],
-                    line_color='white', fill_color='white',
-                    align='left',font=dict(color='Black', size=18)))])
+                        line_color='white', fill_color='white',
+                        align='left',font=dict(color='Black', size=18)))])
+        fig.update_layout(margin=dict(l=2,r=2,b=5,t=5), height=150, width=1000, font_family="Times New Roman") #"Arial", "Balto", "Courier New", "Droid Sans",, "Droid Serif", "Droid Sans Mono", "Gravitas One", "Old Standard TT", "Open Sans", "Overpass", "PT Sans Narrow", "Raleway", "Times New Roman".
+        st.write(fig) 
     with tab2:
-        st.write(instruction)
-        fig = go.Figure(selected_recipe_info=[go.Table(
+        fig = go.Figure(data=[go.Table(
+            header=dict(values=['Instructions'],
+                        line_color='white', fill_color='white',
+                        align='center',font=dict(color='white', size=1)),
             cells=dict(values=[selected_recipe_info.RecipeInstructions],
-                    line_color='white', fill_color='white',
-                    align='left',font=dict(color='Black', size=18)))])       
+                        line_color='white', fill_color='white',
+                        align='left',font=dict(color='Black', size=18)))])
+        fig.update_layout(margin=dict(l=2,r=2,b=5,t=5), height=150, width=1000, font_family="Times New Roman") #"Arial", "Balto", "Courier New", "Droid Sans",, "Droid Serif", "Droid Sans Mono", "Gravitas One", "Old Standard TT", "Open Sans", "Overpass", "PT Sans Narrow", "Raleway", "Times New Roman".
+        st.write(fig)   
 
     st.subheader("Recipe Recommendation")
     col, dum = st.columns([3,7])
