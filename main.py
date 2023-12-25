@@ -138,7 +138,7 @@ if selected=="Dashboard":
     with hist_rating:
         fig = px.histogram(data, x="Rating_avg",
                     title='Rating Distribution',
-                    opacity=0.8,
+                    opacity=0.9,
                     color_discrete_sequence=['#F58A00'],
                     nbins=50
                     )
@@ -156,7 +156,7 @@ if selected=="Dashboard":
     with sentiment_score:
         fig = px.histogram(data, x="Sentiment_score",
                     title='Sentiment Score Distribution',
-                    opacity=0.8,
+                    opacity=0.9,
                     color_discrete_sequence=['#F58A00'],
                     nbins=50
                     )
@@ -191,7 +191,7 @@ if selected=="Dashboard":
         filtered_data = selected[selected['TotalTime'] <= 1500]
         fig = px.histogram(filtered_data, x="TotalTime",
                     title='Total Time Distribution',
-                    opacity=0.8,
+                    opacity=0.9,
                     color_discrete_sequence=['#F58A00'],
                     nbins=100
                     )
@@ -280,11 +280,11 @@ elif selected=="Application":
     fig = go.Figure(data=[go.Table(
         columnwidth = [1,1],
         header=dict(values=['Ingredient','Instructions'],
-                    line_color='white', fill_color='white',
+                    line_color='#F58A00', fill_color='#F58A00',
                     align='center',font=dict(color='Black', size=20)),
         cells=dict(values=[selected_recipe_info.RecipeIngredientParts, selected_recipe_info.RecipeInstructions],
                     line_color='white', fill_color='white',
-                    align='left',font=dict(color='#F58A00', size=18)))])
+                    align='left',font=dict(color='Black', size=18)))])
     fig.update_layout(margin=dict(l=2,r=2,b=5,t=5), height=200, width=1000, font_family="Times New Roman") #"Arial", "Balto", "Courier New", "Droid Sans",, "Droid Serif", "Droid Sans Mono", "Gravitas One", "Old Standard TT", "Open Sans", "Overpass", "PT Sans Narrow", "Raleway", "Times New Roman".
     st.write(fig) 
 
