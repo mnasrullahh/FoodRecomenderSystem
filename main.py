@@ -98,9 +98,9 @@ if selected=="Dashboard":
     dum1, recipe_data, dum2, review_count = st.columns([1,3,2,7])
     with recipe_data:
         fig = go.Figure(data=[go.Table(
-            columnwidth = [2,1],
+            columnwidth = [3,1],
             header=dict(values=list(data[['Name','TotalTime']].columns),
-                        fill_color='#f2a538',
+                        fill_color='#e8962f',
                         align='center',
                         font=dict(color='Black', size=13)),
             cells=dict(values=[data.Name, data.TotalTime],
