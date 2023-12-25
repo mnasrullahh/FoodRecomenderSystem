@@ -276,7 +276,14 @@ elif selected=="Application":
         sentiment = round(sentiment, 2)
         st.metric(label="Sentiment Score", value=sentiment)
 
-    selected_recipe_info = data[data['Name'] == choose_recipe][['RecipeIngredientParts', 'RecipeInstructions']]
+    tab1, tab2 = st.tabs(["Ingredient", "Instruction"])
+    with tab1:
+        ingredient = data[data['Name'] == choose_recipe]['RecipeIngredientParts']
+        st.write(ingredient)
+    with tab2:
+        instruction = data[data['Name'] == choose_recipe]['RecipeInstructions']
+        st.write(instruction)
+    
     fig = go.Figure(data=[go.Table(
         columnwidth = [1,1],
         header=dict(values=['Ingredient','Instructions'],
