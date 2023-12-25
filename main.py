@@ -100,7 +100,7 @@ if selected=="Dashboard":
         fig = go.Figure(data=[go.Table(
             columnwidth = [3,1],
             header=dict(values=list(data[['Name','TotalTime']].columns),
-                        fill_color='#e8962f',
+                        fill_color='#F58A00',
                         align='center',
                         font=dict(color='Black', size=13)),
             cells=dict(values=[data.Name, data.TotalTime],
@@ -139,7 +139,7 @@ if selected=="Dashboard":
         fig = px.histogram(data, x="Rating_avg",
                     title='Rating Distribution',
                     opacity=0.8,
-                    color_discrete_sequence=['#e8962f'],
+                    color_discrete_sequence=['#F58A00'],
                     nbins=50
                     )
         fig.update_layout(title={
@@ -157,7 +157,7 @@ if selected=="Dashboard":
         fig = px.histogram(data, x="Sentiment_score",
                     title='Sentiment Score Distribution',
                     opacity=0.8,
-                    color_discrete_sequence=['#e8962f'],
+                    color_discrete_sequence=['#F58A00'],
                     nbins=50
                     )
         fig.update_layout(title={
@@ -192,7 +192,7 @@ if selected=="Dashboard":
         fig = px.histogram(filtered_data, x="TotalTime",
                     title='Total Time Distribution',
                     opacity=0.8,
-                    color_discrete_sequence=['#e8962f'],
+                    color_discrete_sequence=['#F58A00'],
                     nbins=100
                     )
         fig.update_layout(title={
@@ -233,7 +233,7 @@ if selected=="Dashboard":
                                     y=wc.index,
                                     x=wc.values,
                                     orientation='h',
-                                    marker_color="#e8962f"))
+                                    marker_color="#F58A00"))
         fig.update_layout(title={ 
                                     'text': "Word Review Distribution",
                                     'y':0.9,
@@ -284,7 +284,7 @@ elif selected=="Application":
                     align='center',font=dict(color='Black', size=20)),
         cells=dict(values=[selected_recipe_info.RecipeIngredientParts, selected_recipe_info.RecipeInstructions],
                     line_color='white', fill_color='white',
-                    align='left',font=dict(color='Orange', size=18)))])
+                    align='left',font=dict(color='#F58A00', size=18)))])
     fig.update_layout(margin=dict(l=2,r=2,b=5,t=5), height=200, width=1000, font_family="Times New Roman") #"Arial", "Balto", "Courier New", "Droid Sans",, "Droid Serif", "Droid Sans Mono", "Gravitas One", "Old Standard TT", "Open Sans", "Overpass", "PT Sans Narrow", "Raleway", "Times New Roman".
     st.write(fig) 
 
