@@ -279,14 +279,17 @@ elif selected=="Application":
     tab1, tab2 = st.tabs(["Ingredient", "Instruction"])
     with tab1:
         ingredient = data[data['Name'] == choose_recipe]['RecipeIngredientParts']
-        fig = go.Figure(data=[go.Table(
+        fig = go.Figure(ingredient=[go.Table(
+            header=dict(values=['Ingredient'],
+                    line_color='white', fill_color='white',
+                    align='center',font=dict(color='Black', size=20)),
             cells=dict(values=[ingredient.RecipeIngredientParts],
                     line_color='white', fill_color='white',
                     align='left',font=dict(color='Black', size=18)))])
     with tab2:
         instruction = data[data['Name'] == choose_recipe]['RecipeInstructions']
         st.write(instruction)
-        fig = go.Figure(data=[go.Table(
+        fig = go.Figure(instruction=[go.Table(
             cells=dict(values=[instruction.RecipeInstructions],
                     line_color='white', fill_color='white',
                     align='left',font=dict(color='Black', size=18)))])       
