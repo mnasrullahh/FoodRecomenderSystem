@@ -329,3 +329,4 @@ elif selected=="Application":
                                         'Instructions':[data.iloc[score[0]]['RecipeInstructions'] for score in sim_scores[1:11]]
                                         }).sort_values('Similarity Score',ascending=False)
     st.dataframe(top_products, use_container_width=True)
+    st.table(top_products)
