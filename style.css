@@ -15,7 +15,7 @@
 #food-recommendation-dashboard{
     margin-top: -20px;
 	padding-bottom: 20px;
-	background-color: #e8962f;
+	background-color: #F58A00;
 	margin-bottom: 20px;
 	color: white;
 	font-weight: bold;
@@ -24,7 +24,7 @@
 #food-recommendation-app{
     margin-top: -20px;
     padding-bottom: 20px;
-	background-color: #e8962f;
+	background-color: #F58A00;
 	margin-bottom: 20px;
 	color: white;
 	font-weight: bold;
@@ -33,7 +33,7 @@
 
 [data-testid="stMetricValue"] {
 
-    color: #e8962f;
+    color: #F58A00;
 
 }
 [data-testid=stHorizontalBlock] [data-testid=column].css-1r6slb0{
