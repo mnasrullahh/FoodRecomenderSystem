@@ -20,7 +20,7 @@ from plotly.subplots import make_subplots
 #data manipulation library
 import pandas as pd
 import numpy as np
-
+import html
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import MinMaxScaler
@@ -55,6 +55,7 @@ def load_data(url):
     return data
 
 data = load_data('data_sample.csv')
+data['Name'] = data['Name'].apply(html.unescape)
 #similarity = pd.read_csv('')
 
 if selected=="Dashboard":
