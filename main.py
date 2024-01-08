@@ -244,7 +244,7 @@ if selected=="Dashboard":
 
         # reviews_text = ' '.join(selected['review_content'].dropna().values().strip().lower())
         stopwords = ['i','the','of','had','one','ve','yet','a','with','but','much','tot','to','your','kinda','my','family','all','ate','and','it','on','how','this','was','t','you','put','don','couldn','4oz','evelyn','in','is','that','very','make','just','1oz','got']
-        reviews_text =[i.lower() for i in  re.split(r'\W+',' '.join(selected['Review'].dropna().values))]
+        reviews_text =[i.lower() for i in  re.split(r'\W+',' '.join(selected['RecipeIngredientParts'].dropna().values))]
         reviews_text = [i for i in reviews_text if i not in stopwords]
 
         def word_count(words):
