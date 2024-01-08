@@ -172,21 +172,40 @@ if selected=="Dashboard":
         fig.layout.yaxis.fixedrange = True
         st.plotly_chart(fig,use_container_width=True)
 
+    slid_opt, dum = st.columns([3,6])
+    with slid_opt:
+        radio_opt = st.radio("Rating Parameter:", ['Rating Average', 'Sentiment Score'])
+
     cslid, slid,dum4 = st.columns([3,2,4])
     with cslid:
-        rate_opt = st.radio("Rating Options:",['Greater than','Less than', 'Equal'], horizontal=True)#,label_visibility="hidden")
+        if radio_opt=="Rating Average":
+            rate_opt = st.radio("Rating Options:",['Greater than','Less than', 'Equal'], horizontal=True)#,label_visibility="hidden")
+        else:
+            rate_opt = st.radio("Score Options:",['Greater than','Less than', 'Equal'], horizontal=True)#,label_visibility="hidden")  
+        
     with slid:
-        rate_slid = st.slider("Rating:", min_value=0.0,max_value=5.0,value=0.0,step=0.1)
+        if radio_opt=="Rating Average":
+            rate_slid = st.slider("Rating:", min_value=0.0,max_value=5.0,value=0.0,step=0.1)
+        else:
+            rate_slid = st.slider("Score:", min_value=-1.0,max_value=1.0,value=0.0,step=0.1)
 
     time_dist, wc = st.columns([1,1])
 
     with time_dist:
-        if rate_opt=="Greater than":
-            selected = data[data['Rating_avg'] >= rate_slid]
-        elif rate_opt=="Less than":
-            selected = data[data['Rating_avg'] <= rate_slid]
+        if radio_opt=="Rating Average":
+            if rate_opt=="Greater than":
+                selected = data[data['Rating_avg'] >= rate_slid]
+            elif rate_opt=="Less than":
+                selected = data[data['Rating_avg'] <= rate_slid]
+            else:
+                selected = data[data['Rating_avg'] == rate_slid]
         else:
-            selected = data[data['Rating_avg'] == rate_slid]    
+            if rate_opt=="Greater than":
+                selected = data[data['Sentiment_score'] >= rate_slid]
+            elif rate_opt=="Less than":
+                selected = data[data['Sentiment_score'] <= rate_slid]
+            else:
+                selected = data[data['Sentiment_score'] == rate_slid]   
 
         # Total Time Distribution
         filtered_data = selected[selected['TotalTime'] <= 1500]
@@ -208,12 +227,20 @@ if selected=="Dashboard":
         st.plotly_chart(fig,use_container_width=True)
 
     with wc:
-        if rate_opt=="Greater than":
-            selected = data[data['Rating_avg'] >= rate_slid]
-        elif rate_opt=="Less than":
-            selected = data[data['Rating_avg'] <= rate_slid]
+        if radio_opt=="Rating Average":
+            if rate_opt=="Greater than":
+                selected = data[data['Rating_avg'] >= rate_slid]
+            elif rate_opt=="Less than":
+                selected = data[data['Rating_avg'] <= rate_slid]
+            else:
+                selected = data[data['Rating_avg'] == rate_slid]
         else:
-            selected = data[data['Rating_avg'] == rate_slid]
+            if rate_opt=="Greater than":
+                selected = data[data['Sentiment_score'] >= rate_slid]
+            elif rate_opt=="Less than":
+                selected = data[data['Sentiment_score'] <= rate_slid]
+            else:
+                selected = data[data['Sentiment_score'] == rate_slid] 
 
         # reviews_text = ' '.join(selected['review_content'].dropna().values().strip().lower())
         stopwords = ['i','the','of','had','one','ve','yet','a','with','but','much','tot','to','your','kinda','my','family','all','ate','and','it','on','how','this','was','t','you','put','don','couldn','4oz','evelyn','in','is','that','very','make','just','1oz','got']
