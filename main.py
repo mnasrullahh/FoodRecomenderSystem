@@ -263,14 +263,14 @@ if selected=="Dashboard":
                                     orientation='h',
                                     marker_color="#F58A00"))
         fig.update_layout(title={ 
-                                    'text': "Word Review Distribution",
+                                    'text': "Recipe Ingredient Distribution",
                                     'y':0.9,
                                     'x':0.5,
                                     'xanchor': 'center',
                                     'yanchor': 'top'},plot_bgcolor='#ffffff')
         #fig.update_yaxes(visible=False)
         fig.update_xaxes(title='Count')
-        fig.update_yaxes(title='Word')
+        fig.update_yaxes(title='Ingredient')
         fig.layout.xaxis.fixedrange = True
         fig.layout.yaxis.fixedrange = True
         st.plotly_chart(fig,use_container_width=True)
